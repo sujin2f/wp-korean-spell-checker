@@ -1,7 +1,7 @@
 version: '2'
 services:
   wordpress:
-    container_name: wordpress-sujin
+    container_name: wordpress-korean-spell-checker
     image: wordpress:latest
     external_links:
       - mariadb:mysql
@@ -16,6 +16,7 @@ services:
       TZ: America/Toronto
     volumes:
       - ./:/var/www/html/wp-content/plugins/korean-spell-checker
+      - ../plugins/classic-editor:/var/www/html/wp-content/plugins/classic-editor
     ports:
       - 80
     networks:
