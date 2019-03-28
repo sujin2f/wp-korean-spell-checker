@@ -3,16 +3,18 @@ jQuery(document).ready(($) => {
     init: (editor) => {
       editor.addCommand('open_korean_spell_checker', () => {
         const text = editor.getContent({ format: 'text' });
-        $('<form/>', {
-          id: '#korean_spell_checker',
+        console.log(text);
+        $('<form />', {
+          id: 'korean_spell_checker',
           target: '_blank',
           action: 'http://speller.cs.pusan.ac.kr/results',
-          method: 'POST',
+          method: 'post',
           html: '<textarea name="text1"></textarea>',
         }).appendTo('body');
-        $('form#KSC_form textarea').html(text);
-        $('form#KSC_form').submit();
-        $('form#KSC_form').remove();
+
+        $('form#korean_spell_checker textarea').html(text);
+        $('form#korean_spell_checker').submit();
+        $('form#korean_spell_checker').remove();
       });
 
       // Register buttons
@@ -20,6 +22,7 @@ jQuery(document).ready(($) => {
         title: '한국어 맞춤법 검사기를 열어요.',
         cmd: 'open_korean_spell_checker',
       });
+      console.log('editor.addButton');
     },
     getInfo: () => ({
       longname: 'Korean Spell Checker',
@@ -32,4 +35,5 @@ jQuery(document).ready(($) => {
 
   // Register plugin
   window.tinymce.PluginManager.add('korean_spell', window.tinymce.plugins.koreanSpellChecker);
+  console.log('Register plugin');
 });
