@@ -6,7 +6,9 @@
     "lint-js": "eslint .",
     "lint-js:fix": "eslint . --fix",
     "build": "cross-env BABEL_ENV=default NODE_ENV=production webpack",
-    "start": "cross-env BABEL_ENV=default webpack --watch"
+    "start": "cross-env BABEL_ENV=default webpack --watch",
+    "phpunit": "./vendor/phpunit/phpunit/phpunit",
+    "phpcs": "./vendor/bin/phpcs -n -s --parallel=8 ./"
   },
   "author": {
     "email": "sujin.2f@google.com",

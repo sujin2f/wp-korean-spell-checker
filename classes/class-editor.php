@@ -40,12 +40,12 @@ class Editor {
 	}
 
 	public function mce_external_plugins( $plugin_array ) {
-		$plugin_array['korean_spell'] = $this->get_asset_url() . '/dist/script.js';
+		$plugin_array[Korean_Spell_Checker::PLUGIN_NAME] = $this->get_asset_url() . '/dist/script.js';
 		return $plugin_array;
 	}
 
 	public function mce_buttons( $buttons ) {
-		array_push( $buttons, 'separator', 'korean_spell' );
+		array_push( $buttons, 'separator', Korean_Spell_Checker::PLUGIN_NAME );
 		return $buttons;
 	}
 

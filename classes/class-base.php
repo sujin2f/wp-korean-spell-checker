@@ -19,9 +19,8 @@ use Sujin\Wordpress\Plugin\Korean_Spell_Checker\Editor;
 class Korean_Spell_Checker {
 	private static $instance;
 
-	private const DEBUG_MODE  = true;
-	public const PLUGIN_NAME  = 'korean-spell-checker';
-
+	public const DEBUG_MODE  = true;
+	public const PLUGIN_NAME = 'korean-spell-checker';
 
 	function __construct() {
 		if ( ! is_admin() ) {

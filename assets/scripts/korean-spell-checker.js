@@ -3,7 +3,6 @@ jQuery(document).ready(($) => {
     init: (editor) => {
       editor.addCommand('open_korean_spell_checker', () => {
         const text = editor.getContent({ format: 'text' });
-        console.log(text);
         $('<form />', {
           id: 'korean_spell_checker',
           target: '_blank',
@@ -18,11 +17,10 @@ jQuery(document).ready(($) => {
       });
 
       // Register buttons
-      editor.addButton('korean_spell', {
+      editor.addButton('korean-spell-checker', {
         title: '한국어 맞춤법 검사기를 열어요.',
         cmd: 'open_korean_spell_checker',
       });
-      console.log('editor.addButton');
     },
     getInfo: () => ({
       longname: 'Korean Spell Checker',
@@ -34,6 +32,5 @@ jQuery(document).ready(($) => {
   });
 
   // Register plugin
-  window.tinymce.PluginManager.add('korean_spell', window.tinymce.plugins.koreanSpellChecker);
-  console.log('Register plugin');
+  window.tinymce.PluginManager.add('korean-spell-checker', window.tinymce.plugins.koreanSpellChecker);
 });
