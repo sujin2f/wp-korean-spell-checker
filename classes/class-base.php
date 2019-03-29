@@ -22,7 +22,7 @@ class Korean_Spell_Checker {
 
 	private $plugin_path;
 
-	public const DEBUG_MODE  = true;
+	public const DEBUG_MODE  = false;
 	public const PLUGIN_NAME = 'korean-spell-checker';
 
 	function __construct() {
