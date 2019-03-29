@@ -1,10 +1,10 @@
 === 한글 맞춤법 검사기 - Korean Spell Checker! ===
 Contributors: sujin2f
-Donate link: http://www.sujinc.com/lab/korean-spell-checker/
+Donate link: http://sujinc.com/donation
 Tags: korean, spell, tinymce, 한글
 Requires at least: 2.8
 Tested up to: 4.4
-Stable tag: 3.1
+Stable tag: 4.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 1. 맞춤법 검사기 버튼
 
 == Changelog ==
+= 4.0.0 =
+* 부산대 API 주소 수정
+* SCSS, ES6, PHPCS 적용
+* Gutenberg 지원
+
 = 3.1 =
 * 에러 수정
 

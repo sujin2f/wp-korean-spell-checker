@@ -64,3 +64,4 @@ build
 wp-content/uploads
 wp-content/upgrade
 .svn
+vendor

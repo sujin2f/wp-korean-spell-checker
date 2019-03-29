@@ -10,22 +10,14 @@
  * Text Domain: korean-spell-checker
  */
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	header( 'Status: 403 Forbidden' );
 	header( 'HTTP/1.1 403 Forbidden' );
 	exit();
 }
 
-# Definitions
-if ( !defined( 'KSC_PLUGIN_NAME' ) ) {
-	$basename = trim( dirname( plugin_basename( __FILE__ ) ), '/' );
-	if ( !is_dir( WP_PLUGIN_DIR . '/' . $basename ) ) {
-		$basename = explode( '/', $basename );
-		$basename = array_pop( $basename );
-	}
+include_once( plugin_dir_path( __FILE__ ) . 'classes/class-base.php' );
+include_once( plugin_dir_path( __FILE__ ) . 'classes/class-editor.php' );
+include_once( plugin_dir_path( __FILE__ ) . 'classes/class-gutenberg.php' );
 
-	define( 'KSC_PLUGIN_NAME', $basename );
-}
-
-include_once( 'classes/class-base.php');
 Sujin\Wordpress\Plugin\Korean_Spell_Checker::get_instance();
