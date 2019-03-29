@@ -16,7 +16,7 @@ class Editor_Test extends WP_UnitTestCase {
 	function test_mce_external_plugins() {
 		$instance = Editor::get_instance();
 		$result   = $instance->mce_external_plugins( array() );
-		$result   = false !== strpos( $result[Korean_Spell_Checker::PLUGIN_NAME], 'korean-spell-checker/assets/dist/script.js' );
+		$result   = false !== strpos( $result[Korean_Spell_Checker::$plugin_name], 'korean-spell-checker/assets/dist/script.js' );
 
 		$this->assertTrue( $result );
 	}
@@ -25,7 +25,7 @@ class Editor_Test extends WP_UnitTestCase {
 		$instance = Editor::get_instance();
 		$result   = $instance->mce_buttons( array() );
 
-		$button_array = array( 'separator', Korean_Spell_Checker::PLUGIN_NAME );
+		$button_array = array( 'separator', Korean_Spell_Checker::$plugin_name );
 
 		$this->assertEquals( $result, $button_array );
 	}

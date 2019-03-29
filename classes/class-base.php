@@ -22,15 +22,15 @@ class Korean_Spell_Checker {
 
 	private $plugin_path;
 
-	public const DEBUG_MODE  = false;
-	public const PLUGIN_NAME = 'korean-spell-checker';
+	public static $debug_mode  = false;
+	public static $plugin_name = 'korean-spell-checker';
 
 	function __construct() {
 		if ( ! is_admin() ) {
 			return false;
 		}
 
-		if ( self::DEBUG_MODE ) {
+		if ( self::$debug_mode ) {
 			error_reporting( E_ALL ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_error_reporting
 			ini_set( 'display_errors', 1 ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_ini_set
 			add_action( 'admin_notices', array( $this, 'show_debug_mode_notice' ) );

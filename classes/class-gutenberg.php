@@ -32,7 +32,7 @@ class Gutenberg {
 	public function register_script() {
 		$base = Korean_Spell_Checker::get_instance();
 		wp_register_script(
-			Korean_Spell_Checker::PLUGIN_NAME . '-gutenberg',
+			Korean_Spell_Checker::$plugin_name . '-gutenberg',
 			$base->get_asset_url() . 'dist/gutenberg.js',
 			array( 'wp-rich-text' ),
 			filemtime( $base->get_asset_dir() . 'dist/gutenberg.js' )
@@ -40,7 +40,7 @@ class Gutenberg {
 	}
 
 	public function register_plugin() {
-		wp_enqueue_script( Korean_Spell_Checker::PLUGIN_NAME . '-gutenberg' );
+		wp_enqueue_script( Korean_Spell_Checker::$plugin_name . '-gutenberg' );
 	}
 
 	/**

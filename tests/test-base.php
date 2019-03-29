@@ -8,7 +8,7 @@ class Korean_Spell_Checker_Test extends WP_UnitTestCase {
 	}
 
 	function test_debug_mode() {
-		$this->assertFalse( Korean_Spell_Checker::DEBUG_MODE );
+		$this->assertFalse( Korean_Spell_Checker::$debug_mode );
 	}
 
 	function test_get_instance() {

@@ -38,19 +38,19 @@ class Editor {
 	public function mce_external_plugins( $plugin_array ) {
 		$base = Korean_Spell_Checker::get_instance();
 
-		$plugin_array[Korean_Spell_Checker::PLUGIN_NAME] = $base->get_asset_url() . 'dist/script.js';
+		$plugin_array[ Korean_Spell_Checker::$plugin_name ] = $base->get_asset_url() . 'dist/script.js';
 		return $plugin_array;
 	}
 
 	public function mce_buttons( $buttons ) {
-		array_push( $buttons, 'separator', Korean_Spell_Checker::PLUGIN_NAME );
+		array_push( $buttons, 'separator', Korean_Spell_Checker::$plugin_name );
 		return $buttons;
 	}
 
 	public function enqueue_scripts() {
 		$base = Korean_Spell_Checker::get_instance();
 		wp_enqueue_style(
-			Korean_Spell_Checker::PLUGIN_NAME,
+			Korean_Spell_Checker::$plugin_name,
 			$base->get_asset_url() . 'dist/style.css',
 			array(),
 			filemtime( $base->get_asset_dir() . 'dist/style.css' )
