@@ -19,12 +19,8 @@ use Sujin\Wordpress\Plugin\Korean_Spell_Checker;
 class Editor {
 	private static $instance;
 
-	private $plugin_path = '';
-
 	function __construct() {
 		add_action( 'init', array( $this, 'add_button' ) );
-
-		$this->plugin_path = dirname( __DIR__ );
 	}
 
 	public function add_button() {
@@ -40,7 +36,9 @@ class Editor {
 	}
 
 	public function mce_external_plugins( $plugin_array ) {
-		$plugin_array[Korean_Spell_Checker::PLUGIN_NAME] = $this->get_asset_url() . '/dist/script.js';
+		$base = Korean_Spell_Checker::get_instance();
+
+		$plugin_array[Korean_Spell_Checker::PLUGIN_NAME] = $base->get_asset_url() . 'dist/script.js';
 		return $plugin_array;
 	}
 
@@ -50,11 +48,13 @@ class Editor {
 	}
 
 	public function enqueue_scripts() {
-		wp_enqueue_style( Korean_Spell_Checker::PLUGIN_NAME, $this->get_asset_url() . '/dist/style.css' );
-	}
-
-	public function get_asset_url() {
-		return plugin_dir_url( $this->plugin_path . '/index.php' ) . 'assets';
+		$base = Korean_Spell_Checker::get_instance();
+		wp_enqueue_style(
+			Korean_Spell_Checker::PLUGIN_NAME,
+			$base->get_asset_url() . 'dist/style.css',
+			array(),
+			filemtime( $base->get_asset_dir() . 'dist/style.css' )
+		);
 	}
 
 	/**

@@ -18,8 +18,11 @@ require_once $_tests_dir . '/includes/functions.php';
  * Manually load the plugin being tested.
  */
 function _manually_load_plugin() {
-	require dirname( dirname( __FILE__ ) ) . '/korean-spell-checker.php';
+	include_once( dirname( dirname( __FILE__ ) )  . '/classes/class-base.php' );
+	include_once( dirname( dirname( __FILE__ ) )  . '/classes/class-editor.php' );
+	include_once( dirname( dirname( __FILE__ ) )  . '/classes/class-gutenberg.php' );
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
+
 // Start up the WP testing environment.
 require $_tests_dir . '/includes/bootstrap.php';

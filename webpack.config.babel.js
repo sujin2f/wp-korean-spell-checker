@@ -11,6 +11,7 @@ const config = [
       // Entry points, resolver path, and output path
       entry: {
         script: path.resolve(__dirname, 'assets', 'scripts', 'korean-spell-checker.js'),
+        gutenberg: path.resolve(__dirname, 'assets', 'scripts', 'gutenberg.js'),
         style: path.resolve(__dirname, 'assets', 'scss', 'style.scss'),
       },
     },

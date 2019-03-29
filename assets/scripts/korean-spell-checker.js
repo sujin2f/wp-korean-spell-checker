@@ -1,19 +1,23 @@
-jQuery(document).ready(($) => {
+export default function openSpeller(text) {
+  jQuery('<form />', {
+    id: 'korean_spell_checker',
+    target: '_blank',
+    action: 'http://speller.cs.pusan.ac.kr/results',
+    method: 'post',
+    html: '<textarea name="text1"></textarea>',
+  }).appendTo('body');
+
+  jQuery('form#korean_spell_checker textarea').html(text);
+  jQuery('form#korean_spell_checker').submit();
+  jQuery('form#korean_spell_checker').remove();
+}
+
+jQuery(document).ready(() => {
   window.tinymce.create('tinymce.plugins.koreanSpellChecker', {
     init: (editor) => {
       editor.addCommand('open_korean_spell_checker', () => {
         const text = editor.getContent({ format: 'text' });
-        $('<form />', {
-          id: 'korean_spell_checker',
-          target: '_blank',
-          action: 'http://speller.cs.pusan.ac.kr/results',
-          method: 'post',
-          html: '<textarea name="text1"></textarea>',
-        }).appendTo('body');
-
-        $('form#korean_spell_checker textarea').html(text);
-        $('form#korean_spell_checker').submit();
-        $('form#korean_spell_checker').remove();
+        openSpeller(text);
       });
 
       // Register buttons
@@ -32,5 +36,8 @@ jQuery(document).ready(($) => {
   });
 
   // Register plugin
-  window.tinymce.PluginManager.add('korean-spell-checker', window.tinymce.plugins.koreanSpellChecker);
+  window.tinymce.PluginManager.add(
+    'korean-spell-checker',
+    window.tinymce.plugins.koreanSpellChecker,
+  );
 });

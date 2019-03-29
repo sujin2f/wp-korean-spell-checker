@@ -15,9 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Sujin\Wordpress\Plugin\Korean_Spell_Checker\Editor;
+use Sujin\Wordpress\Plugin\Korean_Spell_Checker\Gutenberg;
 
 class Korean_Spell_Checker {
 	private static $instance;
+
+	private $plugin_path;
 
 	public const DEBUG_MODE  = true;
 	public const PLUGIN_NAME = 'korean-spell-checker';
@@ -33,7 +36,9 @@ class Korean_Spell_Checker {
 			add_action( 'admin_notices', array( $this, 'show_debug_mode_notice' ) );
 		}
 
+		$this->plugin_path = dirname( __DIR__ );
 		Editor::get_instance();
+		Gutenberg::get_instance();
 	}
 
 	public function show_debug_mode_notice() {
@@ -42,6 +47,14 @@ class Korean_Spell_Checker {
 			<p><span class="dashicons dashicons-warning"></span> Korean Spell Checker is running on the DEBUG MODE!</p>
 		</div>
 		<?php
+	}
+
+	public function get_asset_url() {
+		return plugin_dir_url( $this->get_asset_dir() . 'index.php' );
+	}
+
+	public function get_asset_dir() {
+		return $this->plugin_path . '/assets/';
 	}
 
 	/**

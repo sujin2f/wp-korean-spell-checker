@@ -18,4 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 include_once( plugin_dir_path( __FILE__ ) . 'classes/class-base.php' );
 include_once( plugin_dir_path( __FILE__ ) . 'classes/class-editor.php' );
+include_once( plugin_dir_path( __FILE__ ) . 'classes/class-gutenberg.php' );
+
 Sujin\Wordpress\Plugin\Korean_Spell_Checker::get_instance();

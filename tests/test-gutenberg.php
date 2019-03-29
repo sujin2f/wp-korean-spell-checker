@@ -2,7 +2,7 @@
 use Sujin\Wordpress\Plugin\Korean_Spell_Checker;
 use Sujin\Wordpress\Plugin\Korean_Spell_Checker\Editor;
 
-class Editor_Test extends WP_UnitTestCase {
+class Gutenberg_Test extends WP_UnitTestCase {
 	function test_init() {
 		$this->set_admin();
 		$this->assertTrue( true );
